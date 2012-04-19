@@ -1,0 +1,411 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<string.h>
+#include<time.h>
+
+
+char cont1,cont2,cont3,backmul,sub_res,add_res,det_res;
+void time()
+{
+  time_t now;
+  time(&now);
+ 
+  printf("%s", ctime(&now));
+}
+
+
+void mulby_vec()
+{
+	unsigned int a,b,c,d,x,y=0;
+	system("clear");
+printf("\tWELCOME TO THE MULTIPLICATION BY VECTOR SECTION\n\nPlease remember:\nThis is a sample matrix to follow for your elements entry in this program\n");
+printf("This is the format for\n\t(2 x 2) matrix:\t\t Vector(column matrix):\n\t  (a  b)\t\t\t\t(x)\n\t  (c  d)\t\t\t\t(y)\n");
+printf("\nNote: a,b,c,d,x,y can either be negative integers or decimals or positive integers or decimals\n");
+	
+	printf("\nPlease enter the following for Vector\n");
+	printf("Value of x: ");
+	scanf("%d", &x);
+	printf("Value of y: ");
+	scanf("%d", &y);
+
+	printf("\nPlease enter the following for Matrix\n");
+	printf("Value of a: ");
+	scanf("%d", &a);
+	printf("Value of b: ");
+	scanf("%d", &b);
+	printf("Value of c: ");
+	scanf("%d", &c);
+	printf("Value of d: ");
+	scanf("%d", &d);
+	printf("\nRaw Vector and Matrix:\n  (%d)  (%d  %d)\n  (%d)  (%d  %d)\n\n", x,a,b,y,c,d);
+	printf("Results of mutiliplied Vector and Matrix:\n \t(%d)\n \t(%d)\n\n",((x*a)+(b*y)),((x*c)+(d*y))); 		
+printf("Do You want to multiply a vector and a matrix again:Yes/No (y/n): ");
+scanf("\n%c", &cont1);
+		if(cont1 == 'y' || cont1 == 'Y')
+		{ mulby_vec(); }
+			
+}
+
+void mulby_mat()
+{
+system("clear");
+unsigned int a,b,c,d,q,x,y,z=0;
+printf("\tWELCOME TO THE MULTIPLICATION BY MATRIX SECTION\n\nPlease remember:\nThis is a sample matrix to follow for your elements entry in this program\n");
+printf("This is the format for\n\t(2 x 2) matrix A:\t\t (2 x 2) matrix B:\n\t  (a  b)\t\t\t\t(q  x)\n\t  (c  d)\t\t\t\t(y  z)\n");
+printf("\nNote: a,b,c,d,x,y can either be negative integers or decimals or positive integers or decimals\n");
+
+printf("\nPlease enter the following for matrix A\n");
+	printf("Value of a: ");
+	scanf("%d", &a);
+	printf("Value of b: ");
+	scanf("%d", &b);
+	printf("Value of c: ");
+	scanf("%d", &c);
+	printf("Value of d: ");
+	scanf("%d", &d);
+
+printf("\nPlease enter the following for the matrix B\n");
+	printf("Value of q: ");
+	scanf("%d", &q);
+	printf("Value of x: ");
+	scanf("%d", &x);
+	printf("Value of y: ");
+	scanf("%d", &y);
+	printf("Value of z: ");
+	scanf("%d", &z);
+printf("\nRaw Matrix A and Matrix B:\n  (%d  %d)  (%d  %d)\n  (%d  %d)  (%d  %d)\n\n", a,b,q,x,c,d,y,z);
+printf("Results of mutiliplied Vector and Matrix:\n \t(%d  %d)\n \t(%d  %d)\n\n",((a*q)+(b*y)),((a*x)+(b*z)),((c*q)+(d*y)),((c*x)+(d*z)));
+printf("Do You want to multiply a matrix by another matrix again:Yes/No (y/n): ");
+scanf("\n%c", &cont2);
+		if(cont2 == 'y' || cont2 == 'Y')
+		{ mulby_mat(); }
+
+}
+
+void mulby_scala()
+{
+system("clear");
+int a,b,c,d,k=0;
+printf("\tWELCOME TO THE MULTIPLICATION BY SCALAR SECTION\n\nPlease remember:\nThis is a sample matrix to follow for your elements entry in this program\n");
+printf("This is the format for\n\t(2 x 2) matrix A\t\t Scalar(a number):\n\t  (a  b)\t\t\t\t(k)\n\t  (c  d)\n");
+printf("\nNote: a,b,c,d,k can either be negative integers or decimals or positive integers or decimals\n");
+
+printf("\nPlease enter the following for matrix A\n");
+	printf("Value of a: ");
+	scanf("%d", &a);
+	printf("Value of b: ");
+	scanf("%d", &b);
+	printf("Value of c: ");
+	scanf("%d", &c);
+	printf("Value of d: ");
+	scanf("%d", &d);
+
+printf("\nPlease enter the following for the scalar\n");
+	printf("Value of k: ");
+	scanf("%d", &k);
+printf("\nRaw Scalar and Matrix A:\n  (%d)   (%d  %d)\n        (%d  %d)\n", k,a,b,c,d);
+printf("Results of mutiliplied Scalar and Matrix A:\n\t (%d  %d)\n\t (%d  %d)\n\n",(k*a),(k*b),(k*c),(k*d));
+printf("Do You want to multiply a scalar by a matrix again:Yes/No (y/n)?  ");
+scanf("\n%c", &cont3);
+	if(cont3 == 'y' || cont3 == 'Y')
+	{ mulby_scala(); }
+}
+
+
+void mainmult()
+{
+
+system("clear");
+char mult_res;
+printf("\tWELCOME TO THE MATRIX MULTIPLICATION SECTION\nPlease remember:\nThis is a sample matrix to follow for your elements entry in this program\n");
+printf("This is the format for:\n\t  (2 x 2) matrix\n\t\t  (a  b)\n\t\t  (c  d)\n");
+printf("\nNote: a,b,c,d can either be negative integers or decimals or positive integers or decimals\n");
+printf("\nPlease Enter \'v\' for Multiplying a matrix by vector\nPlease Enter \'m\' for Multiplying by a matrix by another matrix\nPlease Enter \'s\' for Multiplying a matrix by a scalar\nPlease Enter \'t\' To stop the program\n\nWhat option please:");
+scanf("\n%c", &mult_res);
+
+switch(mult_res)
+{
+case('v'):
+{ 
+mulby_vec();
+if (cont1 == 'n' || cont1 == 'N')
+	{
+	printf("What about going back to the Main Matrix Multiplication Page :Yes/No (y/n)?  ");
+	scanf("\n%c", &backmul);
+		if(backmul == 'y' || backmul == 'Y')
+		{ mainmult(); }
+	}
+	
+break;
+}
+
+case('m'):
+{ 
+mulby_mat(); 
+if (cont2 == 'n' || cont2 == 'N')
+	{
+	printf("What about going back to the Main Matrix Multiplication Page :Yes/No (y/n)?  ");
+	scanf("\n%c", &backmul);
+		if(backmul == 'y' || backmul == 'Y')
+		{ mainmult();  }
+		
+	}
+break;
+}
+
+case('s'):
+{
+ mulby_scala();
+if (cont3 == 'n' || cont3 == 'N')
+	{
+	printf("What about going back to the Main Matrix Multiplication Page :Yes/No (y/n)?  ");
+	scanf("\n%c", &backmul);
+	if(backmul == 'y' || backmul == 'Y')
+	{ mainmult(); }
+	}
+break;
+}
+
+case ('t'):
+{ 
+printf("\n \t\t <<<<<<<<<<< SYSTEM HAULTED >>>>>>>>>>>\n\n \t========== THANK YOU FOR USING THIS PROGRAM ==========\n\t\t========= HOPE TO SEE YOU AGAIN ========== \n\n"); 
+break;
+}
+
+default: 
+{
+printf("\n\n<<<<<Incorrect selection >>>>> SYSTEM HAULTED <<<<< RESTART PROGRAM >>>>>\n\n");  
+break; 
+}
+
+}
+}
+
+void sub_mat()
+{
+system("clear");
+unsigned int a,b,c,d,q,x,y,z=0;
+printf("\tWELCOME TO THE SUBTRACTION OF MATRICES SECTION\n\nPlease remember:\nThis is a sample matrix to follow for your elements entry in this program\n");
+printf("This is the format for\n (2 x 2) matrix A:\t\t\t  (2 x 2) matrix B:\n\t  (a  b)\t\t\t\t(q  x)\n\t  (c  d)\t\t\t\t(y  z)\n \t\t  For MATRIX A - MATRIX B\n");
+printf("\nNote: a,b,c,d,x,y can either be negative integers or decimals or positive integers or decimals\n");
+printf("\nNote: Subtraction can only be done on matrices if both are on the same order\nThus all of (2 x 2)\n");
+printf("Follow the prompts to perform subtraction on (2 x 2) matrices\n");
+
+
+printf("\nPlease enter the following for matrix A\n");
+	printf("Value of a: ");
+	scanf("%d", &a);
+	printf("Value of b: ");
+	scanf("%d", &b);
+	printf("Value of c: ");
+	scanf("%d", &c);
+	printf("Value of d: ");
+	scanf("%d", &d);
+
+printf("\nPlease enter the following for the matrix B\n");
+	printf("Value of q: ");
+	scanf("%d", &q);
+	printf("Value of x: ");
+	scanf("%d", &x);
+	printf("Value of y: ");
+	scanf("%d", &y);
+	printf("Value of z: ");
+	scanf("%d", &z);
+printf("\nRaw Matrix A and Matrix B:\n  (%d  %d)  (%d  %d)\n  (%d  %d)  (%d  %d)\n\n", a,b,q,x,c,d,y,z);
+printf("Results of Matrix B subtracted from Matrix A:\n \t(%d  %d)\n \t(%d  %d)\n\n",(a-q),(b-x),(c-y),(d-z));
+printf("Do You want to perform another subtraction operation:Yes/No (y/n): ");
+scanf("\n%c", &sub_res);
+		if(sub_res == 'y' || sub_res == 'Y')
+		{ sub_mat(); }
+	
+
+}
+void add_mat()
+{
+system("clear");
+unsigned int a,b,c,d,q,x,y,z=0;
+printf("\tWELCOME TO THE ADDTION OF MATRICES SECTION\n\nPlease remember:\nThis is a sample matrix to follow for your elements entry in this program\n");
+printf("This is the format for\n (2 x 2) matrix A:\t\t\t  (2 x 2) matrix B:\n\t  (a  b)\t\t\t\t(q  x)\n\t  (c  d)\t\t\t\t(y  z)\n");
+printf("\nNote: a,b,c,d,x,y can either be negative integers or decimals or positive integers or decimals\n");
+printf("\nNote: Addition can only be done on matrices if both are on the same order\nThus all of (2 x 2)\n");
+printf("Follow the prompts to perform addition on (2 x 2) matrices\n");
+
+
+printf("\nPlease enter the following for matrix A\n");
+	printf("Value of a: ");
+	scanf("%d", &a);
+	printf("Value of b: ");
+	scanf("%d", &b);
+	printf("Value of c: ");
+	scanf("%d", &c);
+	printf("Value of d: ");
+	scanf("%d", &d);
+
+printf("\nPlease enter the following for the matrix B\n");
+	printf("Value of q: ");
+	scanf("%d", &q);
+	printf("Value of x: ");
+	scanf("%d", &x);
+	printf("Value of y: ");
+	scanf("%d", &y);
+	printf("Value of z: ");
+	scanf("%d", &z);
+printf("\nRaw Matrix A and Matrix B:\n  (%d  %d)  (%d  %d)\n  (%d  %d)  (%d  %d)\n\n", a,b,q,x,c,d,y,z);
+printf("Results of Matrix B subtracted from Matrix A:\n \t(%d  %d)\n \t(%d  %d)\n\n",(a+q),(b+x),(c+y),(d+z));
+printf("Do You want to perform another addition operation:Yes/No (y/n): ");
+scanf("\n%c", &add_res);
+		if(add_res == 'y' || add_res == 'Y')
+		{ add_mat(); }
+
+}
+void det_mat()
+{
+unsigned int a,b,c,d=0;
+system("clear");
+printf("\t\tWELCOME TO THE MATRIX DETERMINANT FINDER\n");
+printf("\nFormat of (2 x 2) matrix A for this section:\n\t\t (a  b)\n\t\t (c  d)\n");
+
+printf("\nPlease enter the following for matrix A\n");
+	printf("Value of a: ");
+	scanf("%d", &a);
+	printf("Value of b: ");
+	scanf("%d", &b);
+	printf("Value of c: ");
+	scanf("%d", &c);
+	printf("Value of d: ");
+	scanf("%d", &d);
+printf("\nRaw Matrix A:\n\t (%d  %d)\n\t (%d  %d)\n",a,b,c,d);
+printf("\nDeterminant of Matrix:\vDet Matrix A = %d\n",((a*d)-(b*c)));
+
+printf("\nDo you want to find Determinant of another Matrix:Yes/No (y/n): ");
+scanf("\n%c", &det_res);
+		if(det_res == 'y' || det_res == 'Y')
+		{ det_mat(); }
+
+}
+
+void joeb()
+{
+
+char op_res;
+system("clear");
+printf("HELLO PAL \t\t\t\t\t\t");
+time();
+printf("\n\tWELCOME TO THE JOEB MATRIX OPERATIONS PROGRAM\n");
+printf("\nThis is a sample matrix to follow for your elements entry in this program\n");
+printf("This is the format for (2 x 2) matrix:\v(a  b)\v\b\b\b\b\b\b(c  d)\n");
+printf("Note: a,b,c,d can either be negative integers or decimals or positive integers or decimals\n");
+printf("\nIntepretation for elements entry:\n a = row1 column1\n b = row1 column 2\n c = row2 column 1\n d = row2 column 2\n");
+ 
+printf("\nNow, lets start by choosing your operation\n\n OPERATION TITLE \t SIUTABLE OPTION\n");
+printf(" Matrix Multiplication\t\t\'m\'\n Matrix Addition\t\t\'a\'\n Matrix Subtraction\t\t\'s\'\n Matrix Determinant\t\t\'d\'\n TO STOP PROGRAM\t\t\'t\'\n\n");
+printf("What option please:");
+scanf("\n%c", &op_res);
+
+switch(op_res)
+{
+case('m'):
+{
+char multo_joeb;
+mainmult();
+if(backmul == 'n' || backmul == 'N')
+	{
+	 printf("OK. But how about getting back to the MAIN PROGRAM WELCOME PAGE: Yes/No(y/n): ");
+	 scanf("\n%c", &multo_joeb); 
+		if (multo_joeb == 'y' || multo_joeb == 'Y')
+		{ joeb();}
+		if(multo_joeb == 'n' || multo_joeb == 'N')
+		{ printf("\n \t========== THANK YOU FOR USING THIS PROGRAM ==========\n\t\t========= HOPE TO SEE YOU AGAIN ========== \n\n"); break;}
+	}
+	if(backmul != 'y' && backmul != 'Y' || backmul != 'n' && backmul != 'N')
+		{  printf("\n\n\t<<<<<Incorrect selection >>>>> SYSTEM HAULTED <<<<< RESTART PROGRAM >>>>>\n\n");  }
+break;
+}
+case('s'):
+{
+char subto_joeb;
+sub_mat();
+	if(sub_res == 'n' || sub_res == 'N')
+	{
+	 printf("OK. But how about getting back to the MAIN PROGRAM WELCOME PAGE: Yes/No(y/n): ");
+	 scanf("\n%c", &subto_joeb);
+		if (subto_joeb == 'y' || subto_joeb == 'Y')
+		{ joeb(); }
+		if(subto_joeb == 'n' || subto_joeb == 'N')
+		{ printf("\n \t========== THANK YOU FOR USING THIS PROGRAM ==========\n\t\t========= HOPE TO SEE YOU AGAIN ========== \n\n"); break; }
+		if(subto_joeb != 'y' && subto_joeb != 'Y' || subto_joeb != 'n' && subto_joeb != 'N')
+              { printf("\n\n \t >>>>>>>>>> INCORRECT ENTRY <<<<<<<<<<< SYSTEM HAULTED >>>>>>>>>>>\n \t\t>>>>>>>>>>> RESTART PROGRAM PLEASE <<<<<<<<<<<\n\n");break; }
+	}
+	if(sub_res != 'y' && sub_res != 'Y' || sub_res != 'n' && sub_res != 'N')
+	{ printf("\n\n \t >>>>>>>>>> INCORRECT ENTRY <<<<<<<<<<< SYSTEM HAULTED >>>>>>>>>>>\n \t\t>>>>>>>>>>> RESTART PROGRAM PLEASE <<<<<<<<<<<\n\n");break; }
+	
+break;
+}
+
+case ('a'):
+{
+char addto_joeb;
+add_mat();
+	if(add_res == 'n' || add_res == 'N')
+	{
+	 printf("OK. But how about getting back to the MAIN PROGRAM WELCOME PAGE: Yes/No(y/n): ");
+	 scanf("\n%c", &addto_joeb);
+		if (addto_joeb == 'y' || addto_joeb == 'Y')
+		{ joeb(); }
+		if(addto_joeb == 'n' || addto_joeb == 'N')
+		{ printf("\n \t========== THANK YOU FOR USING THIS PROGRAM ==========\n\t\t========= HOPE TO SEE YOU AGAIN ========== \n\n"); break; }
+		if(addto_joeb != 'y' && addto_joeb != 'Y' || addto_joeb != 'n' && addto_joeb != 'N')
+	        {printf("\n\n \t >>>>>>>>>> INCORRECT ENTRY <<<<<<<<<<< SYSTEM HAULTED >>>>>>>>>>>\n\t\t>>>>>>>>>>> RESTART PROGRAM PLEASE <<<<<<<<<<<\n\n");break; }
+	}
+	if(add_res != 'y' && add_res != 'Y' || add_res != 'n' && add_res != 'N')
+	{ printf("\n\n \t >>>>>>>>>> INCORRECT ENTRY <<<<<<<<<<< SYSTEM HAULTED >>>>>>>>>>>\n \t\t>>>>>>>>>>> RESTART PROGRAM PLEASE <<<<<<<<<<<\n\n");break;}
+
+break;
+}
+
+case ('d'):
+{
+char detto_joeb;
+det_mat();
+	if(det_res == 'n' || det_res == 'N')
+	{
+	 printf("OK. But how about getting back to the MAIN PROGRAM WELCOME PAGE: Yes/No(y/n): ");
+	 scanf("\n%c", &detto_joeb);
+		 if (detto_joeb == 'y' || detto_joeb == 'Y')
+		{ joeb(); }
+		if(detto_joeb == 'n' || detto_joeb == 'N')
+		{ printf("\n \t========== THANK YOU FOR USING THIS PROGRAM ==========\n\t\t========= HOPE TO SEE YOU AGAIN ========== \n\n"); break; }
+		if(detto_joeb != 'y' && detto_joeb != 'Y' || detto_joeb != 'n' && detto_joeb != 'N')
+             { printf("\n\n \t >>>>>>>>>> INCORRECT ENTRY <<<<<<<<<<< SYSTEM HAULTED >>>>>>>>>>>\n \t\t>>>>>>>>>>> RESTART PROGRAM PLEASE <<<<<<<<<<<\n\n"); break; }
+	}
+	if (det_res != 'y' && det_res != 'Y' || det_res != 'n' && det_res != 'N')
+	{ printf("\n\n \t >>>>>>>>>> INCORRECT ENTRY <<<<<<<<<<< SYSTEM HAULTED >>>>>>>>>>>\n \t\t>>>>>>>>>>> RESTART PROGRAM PLEASE <<<<<<<<<<<\n\n"); break; }
+break;
+}
+
+case ('t'):
+{
+printf("\n \t\t <<<<<<<<<<< SYSTEM HAULTED >>>>>>>>>>>\n\n \t========== THANK YOU FOR USING THIS PROGRAM ==========\n\t\t========= HOPE TO SEE YOU AGAIN ========== \n\n");
+break;
+}
+
+default: 
+{
+printf("\n\n\t<<<<<Incorrect selection >>>>> SYSTEM HAULTED <<<<< RESTART PROGRAM >>>>>\n\n");  
+break; 
+}
+
+}
+
+}
+
+
+int main(void)
+{
+system("clear");
+joeb();
+
+return 0;
+}
+
